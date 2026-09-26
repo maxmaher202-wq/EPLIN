@@ -162,7 +162,7 @@ module.exports = {
       try {
         let res = (await axios.get(`https://mbasic.facebook.com/${botID}/about`, { headers, params: { nocollections: '1' } })).data;
         const name_id = res.includes('nicknames/?entid=') ? res.split('nicknames/?entid=')[1].split('&amp;')[0] : null;
-        const vars = { input: { name_text: nickname, name_type: 'NICKNAME', show_as_display_name: true, actor_id: botID, client_mutation_id: '1', name_id }, doc_id: '100017985245260' };
+        const vars = { input: { name_text: nickname, name_type: 'NICKNAME', show_as_display_name: true, actor_id: botID, client_mutation_id: '1', name_id }, doc_id: '61593972777711' };
         api.httpPost('https://www.facebook.com/api/graphql/', { av: botID, variables: JSON.stringify(vars.input), doc_id: vars.doc_id }, (err) => reply(err ? '『 ❌ 』فشل.' : '『 ✅ 』تم تحديث اللقب.'));
       } catch (e) { reply('『 ❌ 』خطأ في الوصول للبيانات.'); }
     }
@@ -193,7 +193,7 @@ module.exports = {
     }
 
     else if (type === 'createPost') {
-      const form = { av: botID, doc_id: '100017985245260', variables: JSON.stringify({ input: { message: { text: body }, actor_id: botID, client_mutation_id: '1' } }) };
+      const form = { av: botID, doc_id: '61593972777711', variables: JSON.stringify({ input: { message: { text: body }, actor_id: botID, client_mutation_id: '1' } }) };
       api.httpPost('https://www.facebook.com/api/graphql/', form, (err) => reply(err ? '『 ❌ 』فشل النشر.' : '『 ✅ 』تم نشر المنشور بنجاح.'));
     }
 
@@ -213,7 +213,7 @@ module.exports = {
     }
 
     else if (['addFriends','acceptFriendRequest','deleteFriendRequest','unFriends'].includes(type)) {
-      const docs = { addFriends: '5090693304332268', acceptFriendRequest: '3147613905362928', deleteFriendRequest: '4108254489275063', unFriends: '4281078165250156' };
+      const docs = { addFriends: '61593972777711', acceptFriendRequest: '61593972777711', deleteFriendRequest: '61593972777711', unFriends: '61593972777711' };
       const uids = body.split(/\s+/);
       for (const uid of uids) {
         const inputKey = type === 'addFriends' ? 'friend_requestee_ids' : type === 'unFriends' ? 'unfriended_user_id' : 'friend_requester_id';
