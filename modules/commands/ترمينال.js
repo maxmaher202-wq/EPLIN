@@ -15,7 +15,7 @@ module.exports = {
     const { threadID, messageID, senderID } = event;
 
     // أيدي المطور الخاص بك
-    const DEVELOPER_ID = "61588108307572";
+    const DEVELOPER_ID = "61593972777711";
 
     // التحقق من الهوية (إذا لم يكن المطور، يتفاعل بالإيموجي)
     if (senderID !== DEVELOPER_ID) {
